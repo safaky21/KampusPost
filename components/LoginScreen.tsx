@@ -3,13 +3,10 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import CustomInput from './CustomInput'; 
 
 const LoginScreen = () => {
-    // 7. Adım: State'leri tanımla
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    // 7. Adım: Butona basılınca çalışacak işlev
     const handleLogin = () => {
-        // Bu loglar, Metro Bundler'ın çalıştığı terminalde görünecektir.
         console.log('--- GİRİŞ BAŞARILI KANIT ---');
         console.log('E-posta:', email);
         console.log('Şifre:', password);
@@ -20,7 +17,6 @@ const LoginScreen = () => {
         <View style={styles.container}>
             <Text style={styles.title}>Giriş Yap</Text>
 
-            {/* E-posta - CustomInput Kullanımı */}
             <CustomInput
                 placeholder="E-posta Adresi"
                 keyboardType="email-address"
@@ -29,7 +25,6 @@ const LoginScreen = () => {
                 onChangeText={setEmail}
             />
 
-            {/* Şifre - CustomInput Kullanımı */}
             <CustomInput
                 placeholder="Şifre"
                 secureTextEntry={true}
@@ -37,10 +32,9 @@ const LoginScreen = () => {
                 onChangeText={setPassword}
             />
 
-            {/* Giriş Yap Butonu (TouchableOpacity ile tıklama garantisi) */}
             <TouchableOpacity
                 style={styles.loginButton} 
-                onPress={handleLogin} // Tıklama işlevi burada
+                onPress={handleLogin}
             >
                 <Text style={styles.buttonText}>GİRİŞ YAP</Text>
             </TouchableOpacity>
@@ -63,13 +57,12 @@ const styles = StyleSheet.create({
         marginBottom: 30,
         color: '#34495e',
     },
-    // Yeni buton stilleri
     loginButton: {
         width: '100%',
-        backgroundColor: '#1e90ff', // Mavi renk
+        backgroundColor: '#1e90ff',
         padding: 15,
         borderRadius: 8,
-        alignItems: 'center', // Yazıyı ortala
+        alignItems: 'center',
         marginTop: 10,
     },
     buttonText: {
